@@ -1,0 +1,7 @@
+# output
+
+## csv
+```{r}
+write.csv(df, row.names = F)
+```
+

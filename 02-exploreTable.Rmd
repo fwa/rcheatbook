@@ -1,0 +1,13 @@
+
+
+# Explore Data
+
+
+## columns quick view
+```{r eval=FALSE}
+str(df)
+
+apply(df, 2, function(x) range(x, na.rm = T))
+
+```
+

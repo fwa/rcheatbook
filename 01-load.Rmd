@@ -1,0 +1,74 @@
+
+# Load data
+```{r include=FALSE}
+# not run any of the code chunks when publish
+knitr::opts_chunk$set(eval = F)
+```
+
+## csv
+```{r eval=FALSE}
+library(data.table)
+infile <- 'input_file.csv'
+df <- fread(infile, data.table = F)
+
+```
+
+## excel
+### general excel
+```{r}
+library(xlsx)
+
+# simply load
+df <- xlsx::read.xlsx(infile, sheetIndex = 1)
+df <- xlsx::read.xlsx(infile, sheetName = 'SheetName')
+
+# row/col customized
+df <- xlsx::read.xlsx(infile,
+                      sheetIndex = 1,
+                      startRow = 2,
+                      colIndex = excelCol2Num[c('AA','B')], # helper vector below
+                      endRow = 99)
+```
+
+### excel with password
+```{r}
+library(xlsx)
+df <- read.xlsx(file.xlsx,
+                sheetIndex = 1,
+                password = 'password')
+
+```
+
+
+### larger excel
+```{r}
+library(openxlsx)
+df <- openxlsx::read.xlsx(infile)
+```
+
+
+### excel column letter to index number
+```{r}
+excelCol2Num <- 1:702
+names(excelCol2Num) <- do.call(paste0, expand.grid(LETTERS, c("", LETTERS))[,2:1])
+
+excelCol2Num[c('AA', 'B')]
+```
+
+### header name keep special character
+```{r}
+library(janitor)
+df_raw <- read.csv(infile, check.names = F)
+df <- clean_names(df_raw)
+
+ref_colnames <- data.frame(original = colnames(df_raw), 
+                           row.names = make_clean_names(colnames(df_raw)))
+
+
+```
+
+## txt vector
+```{r}
+v1 <- scan('file.txt', what = character, sep = '\n')
+```
+

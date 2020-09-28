@@ -1,0 +1,53 @@
+```{r include=FALSE}
+# not run any of the code chunks when publish
+knitr::opts_chunk$set(eval = F)
+```
+
+
+# clean data
+
+
+
+## duplicates
+```{r}
+df <- df[ !duplicated(df), ]
+```
+
+## column types
+```{r}
+library(dplyr)
+df <- df %>% mutate_all(as.character)
+
+```
+
+
+
+## string manipulation
+### replace
+```{r}
+df$text <- gsub('old', 'new', df$text)
+```
+
+### split
+```{r}
+text_part1 <- sapply(strsplit(df$text_full, ' '), '[', 1)
+```
+
+
+
+## merge
+```{r}
+df <- merge(df1, df2, by=c('id'), all.x = T)
+
+df <- df1 %>%
+  left_join(., df2, by = c('id'))
+```
+
+## select column by name
+```{r}
+df <- subset(df, select = c(id, gender))
+
+df <- df %>%
+  select('id', 'age')
+```
+
