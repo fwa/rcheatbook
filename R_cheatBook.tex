@@ -141,47 +141,6 @@ Remember each Rmd file contains one and only one chapter, and a chapter is defin
 
 To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.org/tinytex/}.
 
-\hypertarget{intro}{%
-\chapter{Introduction}\label{intro}}
-
-You can label chapter and section titles using \texttt{\{\#label\}} after them, e.g., we can reference Chapter \ref{intro}. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \ref{methods}.
-
-Figures and tables with captions will be placed in \texttt{figure} and \texttt{table} environments, respectively.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\FloatTok{.1}\NormalTok{, }\FloatTok{.1}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Reference a figure by its code chunk label with the \texttt{fig:} prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can reference tables generated from \texttt{knitr::kable()}, e.g., see Table \ref{tab:nice-tab}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Here is a nice table!'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-You can write citations, too. For example, we are using the \textbf{bookdown} package \citep{R-bookdown} in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
-
-\hypertarget{explore-data}{%
-\chapter{Explore Data}\label{explore-data}}
-
-\hypertarget{columns-quick-view}{%
-\section{columns quick view}\label{columns-quick-view}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{str}\NormalTok{(df)}
-
-\KeywordTok{apply}\NormalTok{(df, }\DecValTok{2}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{range}\NormalTok{(x, }\DataTypeTok{na.rm =}\NormalTok{ T))}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{load-data}{%
 \chapter{Load data}\label{load-data}}
 
@@ -276,6 +235,20 @@ You can write citations, too. For example, we are using the \textbf{bookdown} pa
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{explore-data}{%
+\chapter{Explore Data}\label{explore-data}}
+
+\hypertarget{columns-quick-view}{%
+\section{columns quick view}\label{columns-quick-view}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(df)}
+
+\KeywordTok{apply}\NormalTok{(df, }\DecValTok{2}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{range}\NormalTok{(x, }\DataTypeTok{na.rm =}\NormalTok{ T))}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{clean-data}{%
 \chapter{clean data}\label{clean-data}}
 
@@ -343,8 +316,8 @@ You can write citations, too. For example, we are using the \textbf{bookdown} pa
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{applications}{%
-\chapter{Applications}\label{applications}}
+\hypertarget{subset}{%
+\chapter{subset}\label{subset}}
 
 Some \emph{significant} applications are demonstrated in this chapter.
 

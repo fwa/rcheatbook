@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Load data | A Minimal Book Example</title>
+  <title>useful links | A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Load data | A Minimal Book Example" />
+  <meta property="og:title" content="useful links | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Load data | A Minimal Book Example" />
+  <meta name="twitter:title" content="useful links | A Minimal Book Example" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="explore-data.html"/>
+<link rel="prev" href="output.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -187,73 +187,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="load-data" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Load data</h1>
-<div id="csv" class="section level2">
-<h2><span class="header-section-number">2.1</span> csv</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="load-data.html#cb2-1"></a><span class="kw">library</span>(data.table)</span>
-<span id="cb2-2"><a href="load-data.html#cb2-2"></a>infile &lt;-<span class="st"> &#39;input_file.csv&#39;</span></span>
-<span id="cb2-3"><a href="load-data.html#cb2-3"></a>df &lt;-<span class="st"> </span><span class="kw">fread</span>(infile, <span class="dt">data.table =</span> F)</span></code></pre></div>
-</div>
-<div id="excel" class="section level2">
-<h2><span class="header-section-number">2.2</span> excel</h2>
-<div id="general-excel" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> general excel</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="load-data.html#cb3-1"></a><span class="kw">library</span>(xlsx)</span>
-<span id="cb3-2"><a href="load-data.html#cb3-2"></a></span>
-<span id="cb3-3"><a href="load-data.html#cb3-3"></a><span class="co"># simply load</span></span>
-<span id="cb3-4"><a href="load-data.html#cb3-4"></a>df &lt;-<span class="st"> </span>xlsx<span class="op">::</span><span class="kw">read.xlsx</span>(infile, <span class="dt">sheetIndex =</span> <span class="dv">1</span>)</span>
-<span id="cb3-5"><a href="load-data.html#cb3-5"></a>df &lt;-<span class="st"> </span>xlsx<span class="op">::</span><span class="kw">read.xlsx</span>(infile, <span class="dt">sheetName =</span> <span class="st">&#39;SheetName&#39;</span>)</span>
-<span id="cb3-6"><a href="load-data.html#cb3-6"></a></span>
-<span id="cb3-7"><a href="load-data.html#cb3-7"></a><span class="co"># row/col customized</span></span>
-<span id="cb3-8"><a href="load-data.html#cb3-8"></a>df &lt;-<span class="st"> </span>xlsx<span class="op">::</span><span class="kw">read.xlsx</span>(infile,</span>
-<span id="cb3-9"><a href="load-data.html#cb3-9"></a>                      <span class="dt">sheetIndex =</span> <span class="dv">1</span>,</span>
-<span id="cb3-10"><a href="load-data.html#cb3-10"></a>                      <span class="dt">startRow =</span> <span class="dv">2</span>,</span>
-<span id="cb3-11"><a href="load-data.html#cb3-11"></a>                      <span class="dt">colIndex =</span> excelCol2Num[<span class="kw">c</span>(<span class="st">&#39;AA&#39;</span>,<span class="st">&#39;B&#39;</span>)], <span class="co"># helper vector below</span></span>
-<span id="cb3-12"><a href="load-data.html#cb3-12"></a>                      <span class="dt">endRow =</span> <span class="dv">99</span>)</span></code></pre></div>
-</div>
-<div id="excel-with-password" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> excel with password</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="load-data.html#cb4-1"></a><span class="kw">library</span>(xlsx)</span>
-<span id="cb4-2"><a href="load-data.html#cb4-2"></a>df &lt;-<span class="st"> </span><span class="kw">read.xlsx</span>(file.xlsx,</span>
-<span id="cb4-3"><a href="load-data.html#cb4-3"></a>                <span class="dt">sheetIndex =</span> <span class="dv">1</span>,</span>
-<span id="cb4-4"><a href="load-data.html#cb4-4"></a>                <span class="dt">password =</span> <span class="st">&#39;password&#39;</span>)</span></code></pre></div>
-</div>
-<div id="larger-excel" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> larger excel</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="load-data.html#cb5-1"></a><span class="kw">library</span>(openxlsx)</span>
-<span id="cb5-2"><a href="load-data.html#cb5-2"></a>df &lt;-<span class="st"> </span>openxlsx<span class="op">::</span><span class="kw">read.xlsx</span>(infile)</span></code></pre></div>
-</div>
-<div id="excel-column-letter-to-index-number" class="section level3">
-<h3><span class="header-section-number">2.2.4</span> excel column letter to index number</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="load-data.html#cb6-1"></a>excelCol2Num &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">702</span></span>
-<span id="cb6-2"><a href="load-data.html#cb6-2"></a><span class="kw">names</span>(excelCol2Num) &lt;-<span class="st"> </span><span class="kw">do.call</span>(paste0, <span class="kw">expand.grid</span>(LETTERS, <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, LETTERS))[,<span class="dv">2</span><span class="op">:</span><span class="dv">1</span>])</span>
-<span id="cb6-3"><a href="load-data.html#cb6-3"></a></span>
-<span id="cb6-4"><a href="load-data.html#cb6-4"></a>excelCol2Num[<span class="kw">c</span>(<span class="st">&#39;AA&#39;</span>, <span class="st">&#39;B&#39;</span>)]</span></code></pre></div>
-</div>
-<div id="header-name-keep-special-character" class="section level3">
-<h3><span class="header-section-number">2.2.5</span> header name keep special character</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="load-data.html#cb7-1"></a><span class="kw">library</span>(janitor)</span>
-<span id="cb7-2"><a href="load-data.html#cb7-2"></a>df_raw &lt;-<span class="st"> </span><span class="kw">read.csv</span>(infile, <span class="dt">check.names =</span> F)</span>
-<span id="cb7-3"><a href="load-data.html#cb7-3"></a>df &lt;-<span class="st"> </span><span class="kw">clean_names</span>(df_raw)</span>
-<span id="cb7-4"><a href="load-data.html#cb7-4"></a></span>
-<span id="cb7-5"><a href="load-data.html#cb7-5"></a>ref_colnames &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">original =</span> <span class="kw">colnames</span>(df_raw), </span>
-<span id="cb7-6"><a href="load-data.html#cb7-6"></a>                           <span class="dt">row.names =</span> <span class="kw">make_clean_names</span>(<span class="kw">colnames</span>(df_raw)))</span></code></pre></div>
-</div>
-</div>
-<div id="txt-vector" class="section level2">
-<h2><span class="header-section-number">2.3</span> txt vector</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="load-data.html#cb8-1"></a>v1 &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="st">&#39;file.txt&#39;</span>, <span class="dt">what =</span> character, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</span></code></pre></div>
+<div id="useful-links" class="section level1 unnumbered">
+<h1>useful links</h1>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="explore-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="output.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
